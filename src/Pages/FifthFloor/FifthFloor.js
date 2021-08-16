@@ -9,9 +9,40 @@ import './fifthfloor.css';
 import 'aos/dist/aos.css';
 
 
+// const FirstFloor = () => {
+
+//     const [recommend,setRecommend] = useState(()=>{
+//         const localRecommend = localStorage.getItem('recommend');
+//         return localRecommend ? localRecommend : true
+//     });
+   
+//     useEffect(()=>{
+//         if(recommend){
+//             alert('Checkout ur Team has booked in 4th Floor');
+//             localStorage.setItem('recommend',false)
+//             setRecommend(false);
+//         }
+//         AOS.init({
+//             duration:2000
+//         })
+//     },[])
+
 const FifthFloor = () => {
 
+    const [floor_no,setFloor_no] = useState(()=>{
+        const localFloor_no = localStorage.getItem('floor_no');
+        return (localFloor_no === '5') ? localFloor_no : false
+    });
+
+    const [seatClass,setSeatClass] = useState('');
+    
     useEffect(() => {
+         if(floor_no){
+             setSeatClass('fifth-seat disabled');
+         }
+         else{
+            setSeatClass('fifth-seat');
+         }
         AOS.init({
             duration: 3000
         })
@@ -29,25 +60,7 @@ const FifthFloor = () => {
     }
 
     const handleSeatClick = (e) => {
-        console.log(e.target.id);
-        const selectedSeatID = String(e.target.id);
-        //Set the previous seat display to default and change new seat color
-        // document.getElementById(previousSeatID).style.backgroundColor = '#b0c4de';
-        if (previousSeatID.length > 1) {
-            console.log(`Previous Seat Id ${previousSeatID}`);
-            document.getElementById(previousSeatID).style.background = '#45a9ec';
-            document.getElementById(previousSeatID).style.borderRadius = '0px'
-            document.getElementById(previousSeatID).style.borderTopLeftRadius = '25px'
-            document.getElementById(previousSeatID).style.borderTopRightRadius = '25px'
-        }
-        document.getElementById(e.target.id).style.backgroundColor = MapColorToTeam(3);
-        document.getElementById(e.target.id).style.borderRadius = '50%';
-        document.getElementById(e.target.id).style.border = '2px solid black'
-
-        setPreviousSeatID(e.target.id);
-        // alert(selectedSeatID);
-        // setSelectedSeat(selectedSeatID);
-        splitID(selectedSeatID);
+        alert("FLOOR has been BLOCKED by : ADMIN");
     }
 
     return (
@@ -60,32 +73,32 @@ const FifthFloor = () => {
             </div>
             <div className='fifth-seat-container'>
                 <div data-aos={'fade-up'} className='fifth-left-side'>
-                    <div className='fifth-seat' id='f05s01' onClick={handleSeatClick}>F0501</div>
-                    <div className='fifth-seat' id='f05s02' onClick={handleSeatClick}>F0502</div>
-                    <div className='fifth-seat' id='f05s03' onClick={handleSeatClick}>F0503</div>
-                    <div className='fifth-seat' id='f05s04' onClick={handleSeatClick}>F0504</div>
-                    <div className='fifth-seat' id='f05s05' onClick={handleSeatClick}>F0505</div>
-                    <div className='fifth-seat' id='f05s06' onClick={handleSeatClick}>F0506</div>
-                    <div className='fifth-seat' id='f05s07' onClick={handleSeatClick}>F0507</div>
-                    <div className='fifth-seat' id='f05s08' onClick={handleSeatClick}>F0508</div>
-                    <div className='fifth-seat' id='f05s09' onClick={handleSeatClick}>F0509</div>
-                    <div className='fifth-seat' id='f05s10' onClick={handleSeatClick}>F0510</div>
+                    <div className={seatClass} id='f05s01' onClick={handleSeatClick}>F0501</div>
+                    <div className={seatClass} id='f05s02' onClick={handleSeatClick}>F0502</div>
+                    <div className={seatClass} id='f05s03' onClick={handleSeatClick}>F0503</div>
+                    <div className={seatClass} id='f05s04' onClick={handleSeatClick}>F0504</div>
+                    <div className={seatClass} id='f05s05' onClick={handleSeatClick}>F0505</div>
+                    <div className={seatClass} id='f05s06' onClick={handleSeatClick}>F0506</div>
+                    <div className={seatClass} id='f05s07' onClick={handleSeatClick}>F0507</div>
+                    <div className={seatClass} id='f05s08' onClick={handleSeatClick}>F0508</div>
+                    <div className={seatClass} id='f05s09' onClick={handleSeatClick}>F0509</div>
+                    <div className={seatClass} id='f05s10' onClick={handleSeatClick}>F0510</div>
                 </div>
                 <div data-aos={'fade-down'} className='fifth-right-side'>
-                    <div className='fifth-seat' id='f05s11' onClick={handleSeatClick}>F0511</div>
-                    <div className='fifth-seat' id='f05s12' onClick={handleSeatClick}>F0512</div>
-                    <div className='fifth-seat' id='f05s13' onClick={handleSeatClick}>F0513</div>
-                    <div className='fifth-seat' id='f05s14' onClick={handleSeatClick}>F0514</div>
-                    <div className='fifth-seat' id='f05s15' onClick={handleSeatClick}>F0515</div>
-                    <div className='fifth-seat' id='f05s16' onClick={handleSeatClick}>F0516</div>
-                    <div className='fifth-seat' id='f05s17' onClick={handleSeatClick}>F0517</div>
-                    <div className='fifth-seat' id='f05s18' onClick={handleSeatClick}>F0518</div>
-                    <div className='fifth-seat' id='f05s19' onClick={handleSeatClick}>F0519</div>
-                    <div className='fifth-seat' id='f05s20' onClick={handleSeatClick}>F0520</div>
+                    <div className={seatClass} id='f05s11' onClick={handleSeatClick}>F0511</div>
+                    <div className={seatClass} id='f05s12' onClick={handleSeatClick}>F0512</div>
+                    <div className={seatClass} id='f05s13' onClick={handleSeatClick}>F0513</div>
+                    <div className={seatClass} id='f05s14' onClick={handleSeatClick}>F0514</div>
+                    <div className={seatClass} id='f05s15' onClick={handleSeatClick}>F0515</div>
+                    <div className={seatClass} id='f05s16' onClick={handleSeatClick}>F0516</div>
+                    <div className={seatClass} id='f05s17' onClick={handleSeatClick}>F0517</div>
+                    <div className={seatClass} id='f05s18' onClick={handleSeatClick}>F0518</div>
+                    <div className={seatClass} id='f05s19' onClick={handleSeatClick}>F0519</div>
+                    <div className={seatClass} id='f05s20' onClick={handleSeatClick}>F0520</div>
                 </div>
             </div>
         </div>
     )
-}
 
+}
 export default FifthFloor

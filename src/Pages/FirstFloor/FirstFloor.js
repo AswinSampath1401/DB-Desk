@@ -12,11 +12,16 @@ import AOS from 'aos';
 
 const FirstFloor = () => {
 
-    var count =0
+    const [recommend,setRecommend] = useState(()=>{
+        const localRecommend = localStorage.getItem('recommend');
+        return localRecommend ? localRecommend : true
+    });
+   
     useEffect(()=>{
-        if(count===0){
+        if(recommend){
             alert('Checkout ur Team has booked in 4th Floor');
-            count=3;
+            localStorage.setItem('recommend',false)
+            setRecommend(false);
         }
         AOS.init({
             duration:2000

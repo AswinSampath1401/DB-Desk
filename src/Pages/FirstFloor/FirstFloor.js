@@ -60,6 +60,10 @@ const FirstFloor = () => {
         // setSelectedSeat(selectedSeatID);
         splitID(selectedSeatID);
     }
+
+    const getDisabled = localStorage.getItem('disabled');
+
+    const disbaledClass = getDisabled ===1 ? 'para disabled' : '';
     
     return (
         <div className='first'>
@@ -92,7 +96,7 @@ const FirstFloor = () => {
                         <div className='seat' id='f01s20' onClick={handleSeatClick}>F1S20</div>
                     </div>
                 </div>
-                <div className='para'>
+                <div className={disbaledClass}>
                     {myseat}
                 </div>
             </div>

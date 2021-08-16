@@ -19,7 +19,6 @@ const SecondFloor = () => {
 
     const [myseat, setSelectedSeat] = useState('');
     const [previousSeatID, setPreviousSeatID] = useState('');
-
     const splitID = (selectedSeatID) => {
         const floorNumber = selectedSeatID[1] + selectedSeatID[2];
         console.log(`Floor Number ${floorNumber}`);
@@ -60,28 +59,28 @@ const SecondFloor = () => {
             </div>
             <div className='second-seat-container'>
                 <div data-aos={'flip-down'} className='second-left-side'>
-                    <div className='second-seat' id='f04s01' onClick={handleSeatClick}>F0401</div>
-                    <div className='second-seat' id='f04s02' onClick={handleSeatClick}>F0402</div>
-                    <div className='second-seat' id='f04s03' onClick={handleSeatClick}>F0403</div>
-                    <div className='second-seat' id='f04s04' onClick={handleSeatClick}>F0404</div>
-                    <div className='second-seat' id='f04s04' onClick={handleSeatClick}>F0405</div>
-                    <div className='second-seat' id='f04s06' onClick={handleSeatClick}>F0406</div>
-                    <div className='second-seat' id='f04s07' onClick={handleSeatClick}>F0407</div>
-                    <div className='second-seat' id='f04s08' onClick={handleSeatClick}>F0408</div>
-                    <div className='second-seat' id='f04s09' onClick={handleSeatClick}>F0409</div>
-                    <div className='second-seat' id='f04s10' onClick={handleSeatClick}>F0410</div>
+                    <div className='second-seat' id='f02s01' onClick={handleSeatClick}>F0201</div>
+                    <div className='second-seat' id='f02s02' onClick={handleSeatClick}>F0202</div>
+                    <div className='second-seat' id='f02s03' onClick={handleSeatClick}>F0203</div>
+                    <div className='second-seat' id='f02s04' onClick={handleSeatClick}>F0204</div>
+                    <div className='second-seat' id='f02s05' onClick={handleSeatClick}>F0205</div>
+                    <div className='second-seat' id='f02s06' onClick={handleSeatClick}>F0206</div>
+                    <div className='second-seat' id='f02s07' onClick={handleSeatClick}>F0207</div>
+                    <div className='second-seat' id='f02s08' onClick={handleSeatClick}>F0208</div>
+                    <div className='second-seat' id='f02s09' onClick={handleSeatClick}>F0209</div>
+                    <div className='second-seat' id='f02s10' onClick={handleSeatClick}>F0210</div>
                 </div>
                 <div data-aos={'flip-up'} className='second-right-side'>
-                    <div className='second-seat' id='f04s11' onClick={handleSeatClick}>F0411</div>
-                    <div className='second-seat' id='f04s12' onClick={handleSeatClick}>F0412</div>
-                    <div className='second-seat' id='f04s13' onClick={handleSeatClick}>F0413</div>
-                    <div className='second-seat' id='f04s14' onClick={handleSeatClick}>F0414</div>
-                    <div className='second-seat' id='f04s15' onClick={handleSeatClick}>F0415</div>
-                    <div className='second-seat' id='f04s16' onClick={handleSeatClick}>F0416</div>
-                    <div className='second-seat' id='f04s17' onClick={handleSeatClick}>F0417</div>
-                    <div className='second-seat' id='f04s18' onClick={handleSeatClick}>F0418</div>
-                    <div className='second-seat' id='f04s19' onClick={handleSeatClick}>F0419</div>
-                    <div className='second-seat' id='f04s20' onClick={handleSeatClick}>F0420</div>
+                    <div className='second-seat' id='f02s11' onClick={handleSeatClick}>F02S11</div>
+                    <div className='second-seat' id='f02s12' onClick={handleSeatClick}>F02S12</div>
+                    <div className='second-seat' id='f02s13' onClick={handleSeatClick}>F02S13</div>
+                    <div className='second-seat' id='f02s14' onClick={handleSeatClick}>F02S14</div>
+                    <div className='second-seat' id='f02s15' onClick={handleSeatClick}>F02S15</div>
+                    <div className='second-seat' id='f02s16' onClick={handleSeatClick}>F02S16</div>
+                    <div className='second-seat' id='f02s17' onClick={handleSeatClick}>F02S17</div>
+                    <div className='second-seat' id='f02s18' onClick={handleSeatClick}>F02S18</div>
+                    <div className='second-seat' id='f02s19' onClick={handleSeatClick}>F02S19</div>
+                    <div className='second-seat' id='f02s20' onClick={handleSeatClick}>F02S20</div>
                 </div>
             </div>
         </div>

@@ -1,4 +1,7 @@
 import React, {useState,useEffect} from 'react';
+import Snackbar from '@material-ui/core/Snackbar';
+import Alert from '@material-ui/lab/Alert';
+import Slide from '@material-ui/core/Slide';
 import AOS from 'aos';
 import Utils from '../../components/Utils/Utils';
 
@@ -7,6 +10,7 @@ import MapColorToTeam from '../../helpers/TeamToColors';
 
 import './thirdfloor.css';
 import 'aos/dist/aos.css';
+
 
 
 const ThirdFloor = () => {
@@ -19,6 +23,7 @@ const ThirdFloor = () => {
 
     const [myseat, setSelectedSeat] = useState('');
     const [previousSeatID, setPreviousSeatID] = useState('');
+    const [covidSeat,setCovidSeat] = useState(false);
 
     const splitID = (selectedSeatID) => {
         const floorNumber = selectedSeatID[1] + selectedSeatID[2];
@@ -50,6 +55,13 @@ const ThirdFloor = () => {
         splitID(selectedSeatID);
     }
 
+    const handeCovidAlertClose = (event,reason)=>{
+        if (reason === 'clickaway') {
+            return;
+        }
+        setCovidSeat(false);
+    }
+
     return (
         <div className='third'>
             <div className='third-navbar'>
@@ -61,29 +73,40 @@ const ThirdFloor = () => {
             <div className='third-seat-container'>
                 <div data-aos={'zoom-in-right'} className='third-left-side'>
                     <div className='third-seat' id='f04s01' onClick={handleSeatClick}>F0401</div>
-                    <div className='third-seat' id='f04s02' onClick={handleSeatClick}>F0402</div>
+                    <div className='third-seat covid' id='f04s02' onClick={()=>{setCovidSeat(true)}}>F0402</div>
                     <div className='third-seat' id='f04s03' onClick={handleSeatClick}>F0403</div>
-                    <div className='third-seat' id='f04s04' onClick={handleSeatClick}>F0404</div>
-                    <div className='third-seat' id='f04s04' onClick={handleSeatClick}>F0405</div>
-                    <div className='third-seat' id='f04s06' onClick={handleSeatClick}>F0406</div>
+                    <div className='third-seat covid'  id='f04s04' onClick={()=>{setCovidSeat(true)}}>F0404</div>
+                    <div className='third-seat' id='f04s05' onClick={handleSeatClick}>F0405</div>
+                    <div className='third-seat covid'  id='f04s06' onClick={()=>{setCovidSeat(true)}}>F0406</div>
                     <div className='third-seat' id='f04s07' onClick={handleSeatClick}>F0407</div>
-                    <div className='third-seat' id='f04s08' onClick={handleSeatClick}>F0408</div>
+                    <div className='third-seat covid'  id='f04s08' onClick={()=>{setCovidSeat(true)}}>F0408</div>
                     <div className='third-seat' id='f04s09' onClick={handleSeatClick}>F0409</div>
-                    <div className='third-seat' id='f04s10' onClick={handleSeatClick}>F0410</div>
+                    <div className='third-seat covid'  id='f04s10' onClick={()=>{setCovidSeat(true)}}>F0410</div>
                 </div>
                 <div data-aos={'zoom-in-left'} className='third-right-side'>
-                    <div className='third-seat' id='f04s11' onClick={handleSeatClick}>F0411</div>
+                    <div className='third-seat covid' id='f04s11' onClick={()=>{setCovidSeat(true)}}>F0411</div>
                     <div className='third-seat' id='f04s12' onClick={handleSeatClick}>F0412</div>
-                    <div className='third-seat' id='f04s13' onClick={handleSeatClick}>F0413</div>
+                    <div className='third-seat covid' id='f04s13' onClick={()=>{setCovidSeat(true)}}>F0413</div>
                     <div className='third-seat' id='f04s14' onClick={handleSeatClick}>F0414</div>
-                    <div className='third-seat' id='f04s15' onClick={handleSeatClick}>F0415</div>
+                    <div className='third-seat covid' id='f04s15' onClick={()=>{setCovidSeat(true)}}>F0415</div>
                     <div className='third-seat' id='f04s16' onClick={handleSeatClick}>F0416</div>
-                    <div className='third-seat' id='f04s17' onClick={handleSeatClick}>F0417</div>
+                    <div className='third-seat covid' id='f04s17' onClick={()=>{setCovidSeat(true)}}>F0417</div>
                     <div className='third-seat' id='f04s18' onClick={handleSeatClick}>F0418</div>
-                    <div className='third-seat' id='f04s19' onClick={handleSeatClick}>F0419</div>
+                    <div className='third-seat covid' id='f04s19' onClick={()=>{setCovidSeat(true)}}>F0419</div>
                     <div className='third-seat' id='f04s20' onClick={handleSeatClick}>F0420</div>
                 </div>
             </div>
+            <Snackbar
+                open={covidSeat}
+                autoHideDuration={6000}
+                onClose={handeCovidAlertClose}
+                TransitionComponent={Slide}
+                anchorOrigin={{ horizontal: 'center', vertical: 'top' }}
+            >
+                <Alert severity='info' onClose={handeCovidAlertClose}>
+                    This Seat is disabled due to covid restrictions
+                </Alert>
+            </Snackbar>
         </div>
     )
 }

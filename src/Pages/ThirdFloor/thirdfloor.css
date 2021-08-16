@@ -72,6 +72,21 @@ color: black;
 font-weight: bold;
 }
 
+.third-seat:hover{
+  cursor:pointer;
+}
+
+.covid{
+  font-size: 0px;
+  background-color: gray;
+}
+
+.covid::after{
+  font-size: 50px;
+  color: red;
+  content: "X";
+}
+
 
 
 @media screen and (max-width:800px){

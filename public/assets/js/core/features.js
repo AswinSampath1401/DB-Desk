@@ -1,9 +1,9 @@
-function showAlert() {
-  const btn = document.getElementById("btn");
+function showAlert(id) {
+  const btn = document.getElementById(id);
   if(btn.innerText === "BLOCK"){
 	  if (confirm("Are you sure : BLOCK Floor ? ")) {
 	    alert("FLOOR BLOCKED");
-	    nameChange();
+	    nameChange(id);
 	  } else {
 	    alert("NO CHANGES DONE");
 	  }
@@ -11,7 +11,7 @@ function showAlert() {
   else{
   	if (confirm("Are you sure : ENABLE Floor ? ")) {
 	    alert("FLOOR ENABLED");
-	    nameChange();
+	    nameChange(id);
 	  } else {
 	    alert("NO CHANGES DONE");
 	  }
@@ -19,25 +19,25 @@ function showAlert() {
 	  
 } 
 
-const colorChangeRG = () => {
-    $("#btn").removeClass("btn btn-danger");
-    $("#btn").addClass("btn btn-success");       
+const colorChangeRG = (id) => {
+    $(`#${id}`).removeClass("btn btn-danger"); //$("#btn")
+    $(`#${id}`).addClass("btn btn-success");       
 };
 
-const colorChangeGR = () => {
-    $("#btn").removeClass("btn btn-success");  
-    $("#btn").addClass("btn btn-danger");     
+const colorChangeGR = (id) => {
+    $(`#${id}`).removeClass("btn btn-success");  
+    $(`#${id}`).addClass("btn btn-danger");     
 };
 
 
 
-const nameChange =  () => {
-	const btn = document.getElementById("btn");
+const nameChange =  (id) => {
+	const btn = document.getElementById(id);
     if(btn.innerText === "BLOCK"){
         btn.innerText = "ENABLE";
-        colorChangeRG();
+        colorChangeRG(id);
     }else{
         btn.innerText= "BLOCK";
-        colorChangeGR();
+        colorChangeGR(id);
     }
 };
